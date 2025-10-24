@@ -2,8 +2,8 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-import static racingcar.domain.ErrorMessage.MAX_CAR_NAME_LENGTH;
-import static racingcar.domain.ErrorMessage.MIN_CAR_NAME_LENGTH;
+import static racingcar.util.ErrorMessage.MAX_CAR_NAME_LENGTH;
+import static racingcar.util.ErrorMessage.MIN_CAR_NAME_LENGTH;
 
 public class Car {
 

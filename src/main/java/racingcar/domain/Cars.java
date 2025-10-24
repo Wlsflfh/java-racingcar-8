@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static racingcar.domain.ErrorMessage.DO_NOT_DUPLICATE_CAR_NAME;
+import static racingcar.util.ErrorMessage.DO_NOT_DUPLICATE_CAR_NAME;
 
 public class Cars {
 

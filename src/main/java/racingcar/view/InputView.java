@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
-import static racingcar.domain.ErrorMessage.INVALID_INPUT;
+import static racingcar.util.ErrorMessage.INVALID_INPUT;
 
 public class InputView {
 

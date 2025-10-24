@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.util;
 
 public enum ErrorMessage {
     INVALID_INPUT("잘못된 입력입니다."),
