@@ -1,10 +1,10 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.Objects;
 
 public class Car {
+
+    private static final int MOVING_THRESHOLD = 4;
 
     private final String name;
     private int position;
@@ -15,8 +15,8 @@ public class Car {
         this.position = 0;
     }
 
-    public void moveCar() {
-        if (generateRandomNumber() >= 4) {
+    public void moveCar(int randomNumber) {
+        if (isMove(randomNumber)) {
             position++;
         }
     }
@@ -33,8 +33,8 @@ public class Car {
         return position;
     }
 
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+    private boolean isMove(int randomNumber) {
+        return randomNumber >= MOVING_THRESHOLD;
     }
 
     private void validateNameLength(String name) {

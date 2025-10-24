@@ -8,14 +8,16 @@ import java.util.Set;
 public class Cars {
 
     private final List<Car> cars;
+    private final CarMoveRandomNumberGenerator carMoveRandomNumberGenerator;
 
-    public Cars(List<String> carNames) {
+    public Cars(List<String> carNames, CarMoveRandomNumberGenerator carMoveRandomNumberGenerator) {
         this.cars = fromCarNames(carNames);
+        this.carMoveRandomNumberGenerator = carMoveRandomNumberGenerator;
     }
 
     public void moveCars() {
         for (Car car : cars) {
-            car.moveCar();
+            car.moveCar(carMoveRandomNumberGenerator.generate());
         }
     }
 
