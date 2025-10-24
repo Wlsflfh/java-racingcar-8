@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.CarMoveRandomNumberGenerator;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -15,7 +16,7 @@ public class RacingGameController {
     }
 
     public void play() {
-        Cars cars = new Cars(inputView.readCarNames());
+        Cars cars = new Cars(inputView.readCarNames(), new CarMoveRandomNumberGenerator());
         int numberOfAttempts = inputView.readNumberOfAttempts();
 
         outputView.printProgressHeader();

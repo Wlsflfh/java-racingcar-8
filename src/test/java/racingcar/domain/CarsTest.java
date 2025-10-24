@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -17,7 +19,7 @@ class CarsTest {
         List<String> normalCarNames = List.of("tesla", "kia", "benz");
 
         // when - then
-        assertDoesNotThrow(() -> {new Cars(normalCarNames);});
+        assertDoesNotThrow(() -> {new Cars(normalCarNames, new CarMoveRandomNumberGenerator());});
     }
 
     @Test
@@ -27,7 +29,7 @@ class CarsTest {
         List<String> duplicateCarNames = List.of("tesla", "tesla", "benz");
 
         // when - then
-        assertThatThrownBy(() -> new Cars(duplicateCarNames))
+        assertThatThrownBy(() -> new Cars(duplicateCarNames, new CarMoveRandomNumberGenerator()))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
     }
