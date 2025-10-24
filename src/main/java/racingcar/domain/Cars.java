@@ -41,7 +41,7 @@ public class Cars {
         List<Car> carsList = new ArrayList<>();
 
         for (String carName : carNames) {
-            carsList.add(new Car(carName));
+            carsList.add(new Car(carName.trim()));
         }
 
         validateDuplicateName(carsList);
