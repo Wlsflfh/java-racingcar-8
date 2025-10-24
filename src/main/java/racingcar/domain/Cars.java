@@ -13,6 +13,28 @@ public class Cars {
         this.cars = fromCarNames(carNames);
     }
 
+    public void moveCars() {
+        for (Car car : cars) {
+            car.moveCar();
+        }
+    }
+
+    public List<Car> getWinner() {
+        List<Car> winner = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.isWinner(findWinnerPosition())) {
+                winner.add(car);
+            }
+        }
+
+        return winner;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
     private List<Car> fromCarNames(List<String> carNames) {
         List<Car> carsList = new ArrayList<>();
 
@@ -30,5 +52,15 @@ public class Cars {
         if (uniqueCars.size() != carList.size()) {
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
+    }
+
+    private int findWinnerPosition() {
+        int maxPosition = 0;
+
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+
+        return maxPosition;
     }
 }
