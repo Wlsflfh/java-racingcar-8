@@ -19,7 +19,7 @@ public class Cars {
 
     public void moveCars() {
         for (Car car : cars) {
-            car.moveCar(randomNumberGenerator.generate());
+            car.move(randomNumberGenerator.generate());
         }
     }
 

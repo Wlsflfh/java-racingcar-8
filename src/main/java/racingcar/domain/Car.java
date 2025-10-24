@@ -20,8 +20,8 @@ public class Car {
         this.position = INIT_POSITION;
     }
 
-    public void moveCar(int randomNumber) {
-        if (isMove(randomNumber)) {
+    public void move(int randomNumber) {
+        if (isMoving(randomNumber)) {
             position++;
         }
     }
@@ -30,7 +30,7 @@ public class Car {
         return position == maxPosition;
     }
 
-    private boolean isMove(int randomNumber) {
+    private boolean isMoving(int randomNumber) {
         return randomNumber >= MOVING_THRESHOLD;
     }
 
