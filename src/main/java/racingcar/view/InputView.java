@@ -11,7 +11,6 @@ public class InputView {
     private static final String INPUT_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_NUMBER_OF_ATTEMPTS_MESSAGE = "시도할 횟수는 몇 회인가요?";
 
-
     public List<String> readCarNames() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
         return splitCarNames(validateNull(userInput()));
@@ -27,7 +26,9 @@ public class InputView {
     }
 
     private String validateNull(String inputCarNames) {
-        if (inputCarNames.isEmpty()) {
+        if (inputCarNames.isEmpty()
+                || inputCarNames.startsWith(COMMA_DELIMITER)
+                || inputCarNames.endsWith(COMMA_DELIMITER)) {
             throw new IllegalArgumentException("잘못된 입력값입니다.");
         }
 
