@@ -6,9 +6,20 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 class CarsTest {
+
+    private final CarMoveRandomNumberGenerator carMoveRandomNumberGenerator = new CarMoveRandomNumberGenerator();
+
+    class AlwaysMoveGenerator implements RandomNumberGenerator {
+
+        @Override
+        public int generate() {
+            return 9;
+        }
+    }
 
     @Test
     @DisplayName("정상적인 자동차 이름들 텍스트에 대하여 정상적으로 처리하는지 확인한다.")
@@ -17,7 +28,7 @@ class CarsTest {
         List<String> normalCarNames = List.of("tesla", "kia", "benz");
 
         // when - then
-        assertDoesNotThrow(() -> {new Cars(normalCarNames, new CarMoveRandomNumberGenerator());});
+        assertDoesNotThrow(() -> {new Cars(normalCarNames, carMoveRandomNumberGenerator);});
     }
 
     @Test
@@ -27,8 +38,26 @@ class CarsTest {
         List<String> duplicateCarNames = List.of("tesla", "tesla", "benz");
 
         // when - then
-        assertThatThrownBy(() -> new Cars(duplicateCarNames, new CarMoveRandomNumberGenerator()))
+        assertThatThrownBy(() -> new Cars(duplicateCarNames, carMoveRandomNumberGenerator))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
+    }
+
+
+    @Test
+    @DisplayName("우승자를 올바르게 찾는지 확인한다.")
+    void findWinnerTest() {
+        // given
+        List<String> carNames = List.of("tesla", "kia", "benz");
+        Cars cars = new Cars(carNames, new AlwaysMoveGenerator());
+
+        cars.moveCars(); // 모든 차 1칸 이동
+
+        // when
+        List<Car> winners = cars.getWinner(); // 모두 다 승자
+
+        // then
+        assertThat(winners).extracting(Car::getName)
+                .containsExactlyInAnyOrder("tesla", "kia", "benz");
     }
 }
