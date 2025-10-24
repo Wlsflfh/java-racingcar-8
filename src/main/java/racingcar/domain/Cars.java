@@ -24,15 +24,9 @@ public class Cars {
     }
 
     public List<Car> getWinner() {
-        List<Car> winner = new ArrayList<>();
-
-        for (Car car : cars) {
-            if (car.isWinner(findWinnerPosition())) {
-                winner.add(car);
-            }
-        }
-
-        return winner;
+        return cars.stream()
+                .filter(car -> car.isWinner(findWinnerPosition()))
+                .toList();
     }
 
     private List<Car> fromCarNames(List<String> carNames) {
@@ -55,13 +49,10 @@ public class Cars {
     }
 
     private int findWinnerPosition() {
-        int maxPosition = 0;
-
-        for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
-        }
-
-        return maxPosition;
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 
     public List<Car> getCars() {
