@@ -4,7 +4,9 @@ import java.util.Objects;
 
 public class Car {
 
+    private static final int INIT_POSITION = 0;
     private static final int MOVING_THRESHOLD = 4;
+    private static final int MAX_NAME_LENGTH = 5;
 
     private final String name;
     private int position;
@@ -12,7 +14,7 @@ public class Car {
     public Car(String name) {
         validateNameLength(name);
         this.name = name;
-        this.position = 0;
+        this.position = INIT_POSITION;
     }
 
     public void moveCar(int randomNumber) {
@@ -42,7 +44,7 @@ public class Car {
             throw new IllegalArgumentException("자동차 이름은 1글자 이상이여야 합니다.");
         }
 
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
         }
     }
