@@ -10,16 +10,16 @@ import static racingcar.domain.ErrorMessage.DO_NOT_DUPLICATE_CAR_NAME;
 public class Cars {
 
     private final List<Car> cars;
-    private final CarMoveRandomNumberGenerator carMoveRandomNumberGenerator;
+    private final RandomNumberGenerator randomNumberGenerator;
 
-    public Cars(List<String> carNames, CarMoveRandomNumberGenerator carMoveRandomNumberGenerator) {
+    public Cars(List<String> carNames, RandomNumberGenerator randomNumberGenerator) {
         this.cars = fromCarNames(carNames);
-        this.carMoveRandomNumberGenerator = carMoveRandomNumberGenerator;
+        this.randomNumberGenerator = randomNumberGenerator;
     }
 
     public void moveCars() {
         for (Car car : cars) {
-            car.moveCar(carMoveRandomNumberGenerator.generate());
+            car.moveCar(randomNumberGenerator.generate());
         }
     }
 
