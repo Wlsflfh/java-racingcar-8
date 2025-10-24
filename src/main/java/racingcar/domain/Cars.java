@@ -30,11 +30,10 @@ public class Cars {
     }
 
     private List<Car> fromCarNames(List<String> carNames) {
-        List<Car> carsList = new ArrayList<>();
-
-        for (String carName : carNames) {
-            carsList.add(new Car(carName.trim()));
-        }
+        List<Car> carsList = carNames.stream()
+                .map(String::trim)
+                .map(Car::new)
+                .toList();
 
         validateDuplicateName(carsList);
         return carsList;
