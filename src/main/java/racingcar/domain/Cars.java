@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static racingcar.domain.ErrorMessage.DO_NOT_DUPLICATE_CAR_NAME;
+
 public class Cars {
 
     private final List<Car> cars;
@@ -48,7 +50,7 @@ public class Cars {
         Set<Car> uniqueCars = new HashSet<>(carList);
 
         if (uniqueCars.size() != carList.size()) {
-            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+            throw new IllegalArgumentException(DO_NOT_DUPLICATE_CAR_NAME.getMessage());
         }
     }
 

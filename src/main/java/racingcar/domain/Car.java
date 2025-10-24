@@ -2,6 +2,9 @@ package racingcar.domain;
 
 import java.util.Objects;
 
+import static racingcar.domain.ErrorMessage.MAX_CAR_NAME_LENGTH;
+import static racingcar.domain.ErrorMessage.MIN_CAR_NAME_LENGTH;
+
 public class Car {
 
     private static final int INIT_POSITION = 0;
@@ -33,11 +36,11 @@ public class Car {
 
     private void validateNameLength(String name) {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름은 1글자 이상이여야 합니다.");
+            throw new IllegalArgumentException(MIN_CAR_NAME_LENGTH.getMessage());
         }
 
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
+            throw new IllegalArgumentException(MAX_CAR_NAME_LENGTH.getMessage());
         }
     }
 

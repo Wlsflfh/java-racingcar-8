@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
+import static racingcar.domain.ErrorMessage.INVALID_INPUT;
+
 public class InputView {
 
     private static final String COMMA_DELIMITER = ",";
@@ -29,7 +31,7 @@ public class InputView {
         if (inputCarNames.isEmpty()
                 || inputCarNames.startsWith(COMMA_DELIMITER)
                 || inputCarNames.endsWith(COMMA_DELIMITER)) {
-            throw new IllegalArgumentException("잘못된 입력값입니다.");
+            throw new IllegalArgumentException(INVALID_INPUT.getMessage());
         }
 
         return inputCarNames;
@@ -39,7 +41,7 @@ public class InputView {
         try {
             return Integer.parseInt(numberOfAttempts);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("잘못된 입력값입니다.");
+            throw new IllegalArgumentException(INVALID_INPUT.getMessage());
         }
     }
 
