@@ -33,10 +33,6 @@ public class Cars {
         return winner;
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     private List<Car> fromCarNames(List<String> carNames) {
         List<Car> carsList = new ArrayList<>();
 
@@ -64,5 +60,9 @@ public class Cars {
         }
 
         return maxPosition;
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }

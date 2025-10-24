@@ -27,14 +27,6 @@ public class Car {
         return position == maxPosition;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
     private boolean isMove(int randomNumber) {
         return randomNumber >= MOVING_THRESHOLD;
     }
@@ -47,6 +39,14 @@ public class Car {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     @Override
