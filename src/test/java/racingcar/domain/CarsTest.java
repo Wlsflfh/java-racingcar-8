@@ -51,10 +51,10 @@ class CarsTest {
         List<String> carNames = List.of("tesla", "kia", "benz");
         Cars cars = new Cars(carNames, new AlwaysMoveGenerator());
 
-        cars.moveCars(); // 모든 차 1칸 이동
+        cars.moveCars();
 
         // when
-        List<Car> winners = cars.getWinner(); // 모두 다 승자
+        List<Car> winners = cars.getWinner();
 
         // then
         assertThat(winners).extracting(Car::getName)
