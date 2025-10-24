@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 public class OutputView {
 
-
     private static final String MOVE_MARK = "-";
     private static final String JOIN_DELIMITER = ", ";
     private static final String PROGRESS_HEADER_MESSAGE = "\n실행 결과";
