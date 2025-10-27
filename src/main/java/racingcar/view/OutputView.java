@@ -29,7 +29,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinner(List<Car> winner) {
+    public void printWinners(List<Car> winner) {
         String winners = winner.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(JOIN_DELIMITER));

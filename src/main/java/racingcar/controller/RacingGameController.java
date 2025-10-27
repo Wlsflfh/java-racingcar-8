@@ -25,7 +25,7 @@ public class RacingGameController {
 
         RacingGameService racingGameService = new RacingGameService(cars, numberOfAttempts);
         playRounds(racingGameService);
-        outputView.printWinner(racingGameService.getWinners());
+        outputView.printWinners(racingGameService.getWinners());
     }
 
     private void playRounds(RacingGameService racingGameService) {
