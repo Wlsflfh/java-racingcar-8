@@ -10,7 +10,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
-class RacingGameTest {
+class RacingGameServiceTest {
 
     @Test
     @DisplayName("시도 횟수에 대하여 양의 정수만 가능한지 확인한다.")
@@ -22,14 +22,14 @@ class RacingGameTest {
         int negativeNumber = -1;
 
         // when - then
-        assertThatThrownBy(() -> new RacingGame(cars, zero))
+        assertThatThrownBy(() -> new RacingGameService(cars, zero))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 1회 이상 이어야 합니다.");
 
-        assertThatThrownBy(() -> new RacingGame(cars, negativeNumber))
+        assertThatThrownBy(() -> new RacingGameService(cars, negativeNumber))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 1회 이상 이어야 합니다.");
 
-        assertDoesNotThrow(() -> {new RacingGame(cars, positiveNumber);});
+        assertDoesNotThrow(() -> {new RacingGameService(cars, positiveNumber);});
     }
 }

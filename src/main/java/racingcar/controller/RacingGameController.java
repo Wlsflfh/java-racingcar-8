@@ -3,7 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Car;
 import racingcar.domain.CarMoveRandomNumberGenerator;
 import racingcar.domain.Cars;
-import racingcar.service.RacingGame;
+import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -23,14 +23,14 @@ public class RacingGameController {
         Cars cars = new Cars(inputView.readCarNames(), new CarMoveRandomNumberGenerator());
         int numberOfAttempts = inputView.readNumberOfAttempts();
 
-        RacingGame racingGame = new RacingGame(cars, numberOfAttempts);
+        RacingGameService racingGameService = new RacingGameService(cars, numberOfAttempts);
 
         outputView.printProgressHeader();
-        List<List<Car>> roundResults = racingGame.playRound();
+        List<List<Car>> roundResults = racingGameService.playRounds();
         for (List<Car> roundResult : roundResults) {
             outputView.printProgress(roundResult);
         }
 
-        outputView.printWinner(racingGame.getWinners());
+        outputView.printWinner(racingGameService.getWinners());
     }
 }

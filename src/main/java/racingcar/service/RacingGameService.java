@@ -8,18 +8,18 @@ import java.util.List;
 
 import static racingcar.util.ErrorMessage.MUST_BE_POSITIVE_NUMBER;
 
-public class RacingGame {
+public class RacingGameService {
 
     private final Cars cars;
     private final int numberOfAttempts;
 
-    public RacingGame(Cars cars, int numberOfAttempts) {
+    public RacingGameService(Cars cars, int numberOfAttempts) {
         validateNumberOfAttempts(numberOfAttempts);
         this.cars = cars;
         this.numberOfAttempts = numberOfAttempts;
     }
 
-    public List<List<Car>> playRound() {
+    public List<List<Car>> playRounds() {
         List<List<Car>> roundResults = new ArrayList<>();
 
         for (int i = 0; i < numberOfAttempts; i++) {
