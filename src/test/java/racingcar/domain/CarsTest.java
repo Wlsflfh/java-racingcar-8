@@ -43,7 +43,6 @@ class CarsTest {
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
     }
 
-
     @Test
     @DisplayName("우승자를 올바르게 찾는지 확인한다.")
     void findWinnerTest() {
