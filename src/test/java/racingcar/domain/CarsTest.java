@@ -54,7 +54,7 @@ class CarsTest {
         cars.moveCars();
 
         // when
-        List<Car> winners = cars.getWinner();
+        List<Car> winners = cars.getWinners();
 
         // then
         assertThat(winners).extracting(Car::getName)

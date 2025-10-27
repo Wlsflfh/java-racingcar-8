@@ -20,6 +20,11 @@ public class Car {
         this.position = INIT_POSITION;
     }
 
+    public Car(String name, int position) {
+        this.name = name;
+        this.position = position;
+    }
+
     public void move(int randomNumber) {
         if (isMoving(randomNumber)) {
             position++;

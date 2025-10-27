@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,7 +21,7 @@ public class Cars {
         cars.forEach(car -> car.move(randomNumberGenerator.generate()));
     }
 
-    public List<Car> getWinner() {
+    public List<Car> getWinners() {
         return cars.stream()
                 .filter(car -> car.isWinner(findWinnerPosition()))
                 .toList();
@@ -52,6 +53,6 @@ public class Cars {
     }
 
     public List<Car> getCars() {
-        return cars;
+        return Collections.unmodifiableList(cars);
     }
 }
