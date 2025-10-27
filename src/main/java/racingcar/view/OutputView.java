@@ -13,6 +13,9 @@ public class OutputView {
     private static final String PROGRESS_MESSAGE_FORMAT = "%s : %s%n";
     private static final String WINNER_MESSAGE_FORMAT = "최종 우승자 : %s";
 
+    public OutputView() {
+    }
+
     public void printProgressHeader() {
         System.out.println(PROGRESS_HEADER_MESSAGE);
     }
