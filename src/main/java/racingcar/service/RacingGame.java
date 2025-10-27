@@ -19,12 +19,6 @@ public class RacingGame {
         this.numberOfAttempts = numberOfAttempts;
     }
 
-    private void validateNumberOfAttempts(int numberOfAttempts) {
-        if (numberOfAttempts <= 0) {
-            throw new IllegalArgumentException(MUST_BE_POSITIVE_NUMBER.getMessage());
-        }
-    }
-
     public List<List<Car>> playRound() {
         List<List<Car>> roundResults = new ArrayList<>();
 
@@ -32,13 +26,19 @@ public class RacingGame {
             cars.moveCars();
 
             List<Car> roundCars = cars.getCars().stream()
-                    .map(car -> new Car(car.getName(), car.getPosition()))
+                    .map(Car::copyOf)
                     .toList();
 
             roundResults.add(roundCars);
         }
 
         return roundResults;
+    }
+
+    private void validateNumberOfAttempts(int numberOfAttempts) {
+        if (numberOfAttempts <= 0) {
+            throw new IllegalArgumentException(MUST_BE_POSITIVE_NUMBER.getMessage());
+        }
     }
 
     public List<Car> getWinners() {

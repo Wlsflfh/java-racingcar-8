@@ -20,9 +20,13 @@ public class Car {
         this.position = INIT_POSITION;
     }
 
-    public Car(String name, int position) {
+    private Car(String name, int position) {
         this.name = name;
         this.position = position;
+    }
+
+    public static Car copyOf(Car car) {
+        return new Car(car.name, car.position);
     }
 
     public void move(int randomNumber) {
