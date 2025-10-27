@@ -25,6 +25,7 @@ public class OutputView {
             String progress = MOVE_MARK.repeat(car.getPosition());
             System.out.printf(PROGRESS_MESSAGE_FORMAT, car.getName(), progress);
         }
+
         System.out.println();
     }
 
