@@ -24,13 +24,15 @@ public class RacingGameController {
         int numberOfAttempts = inputView.readNumberOfAttempts();
 
         RacingGameService racingGameService = new RacingGameService(cars, numberOfAttempts);
+        playRounds(racingGameService);
+        outputView.printWinner(racingGameService.getWinners());
+    }
 
+    private void playRounds(RacingGameService racingGameService) {
         outputView.printProgressHeader();
         List<List<Car>> roundResults = racingGameService.playRounds();
         for (List<Car> roundResult : roundResults) {
             outputView.printProgress(roundResult);
         }
-
-        outputView.printWinner(racingGameService.getWinners());
     }
 }
