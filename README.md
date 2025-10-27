@@ -81,6 +81,9 @@ domain
 - `Cars` - 전체 Car 객체를 관리하며, 자동차 이동과 우승자 판별을 담당하는 클래스
 - `CarMoveRandomNumberGenerator` - `RandomNumberGenerator`인터페이스를 구현하여 자동차 이동을 위한 랜덤 숫자 생성을 담당하는 클래스
 
+service
+- `RacingGame` - 자동차 경주 게임을 진행하고 라운드별 자동차 상태와 최종 승자를 관리하는 서비스 역할하는 클래스 
+
 view
 - `InputView` - 사용자로부터 게임에 참여할 자동차 이름들과 시도 횟수를 입력받는 입력 담당하는 클래스
 - `OutputView` - 게임 실행 과정과 결과를 출력하는 출력 담당하는 클래스
